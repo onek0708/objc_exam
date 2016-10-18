@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="Department" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="team" inverseEntity="Employee" syncable="YES"/>
+    </entity>
+    <entity name="Employee" syncable="YES">
+        <attribute name="branch" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enrollDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="report" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" syncable="YES"/>
+        <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="members" inverseEntity="Department" syncable="YES"/>
+        <fetchedProperty name="fetchedProperty" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Department" predicateString=""/>
+        </fetchedProperty>
+    </entity>
+    <entity name="Event">
+        <attribute name="timeStamp" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
+    </entity>
+    <fetchRequest name="FetchRequest" entity="Department" predicateString="name == &quot;onek&quot;"/>
+    <elements>
+        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="Department" positionX="-153" positionY="315" width="128" height="73"/>
+        <element name="Employee" positionX="81" positionY="270" width="128" height="146"/>
+    </elements>
+</model>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HFW-6M-bep">
+                                <rect key="frame" x="0.0" y="141" width="600" height="459"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M06-Ev-CpB">
+                                <rect key="frame" x="28" y="28" width="113" height="83"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="jW4-IA-2KJ" kind="show" id="hbp-fy-EdG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HFW-6M-bep" secondAttribute="trailing" id="K6i-rS-NIh"/>
+                            <constraint firstItem="HFW-6M-bep" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="S0m-ki-HC4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HFW-6M-bep" secondAttribute="bottom" id="U23-Di-kHk"/>
+                            <constraint firstItem="HFW-6M-bep" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="121" id="zsE-oZ-mYj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="canvasView" destination="HFW-6M-bep" id="Igw-0m-4wh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565" y="417"/>
+        </scene>
+        <!--Gesture View Controller-->
+        <scene sceneID="Rb5-kf-OcZ">
+            <objects>
+                <viewController id="jW4-IA-2KJ" customClass="GestureViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R8c-Jc-VPW"/>
+                        <viewControllerLayoutGuide type="bottom" id="3bb-3D-D0P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zup-hr-Zu4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="v5T-cA-1Xp">
+                                <rect key="frame" x="20" y="37" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ku9-vY-n4M" appends="YES" id="tT9-CT-dqM"/>
+                                    <outletCollection property="gestureRecognizers" destination="iLl-hU-RRV" appends="YES" id="ni8-Zg-fCt"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="idolImageView" destination="v5T-cA-1Xp" id="Tan-uw-Ce1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0d4-Bn-zsb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ku9-vY-n4M">
+                    <connections>
+                        <action selector="imageTap:" destination="jW4-IA-2KJ" id="wvj-7q-VCl"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="iLl-hU-RRV">
+                    <connections>
+                        <action selector="imagePan:" destination="jW4-IA-2KJ" id="fJB-gj-2K3"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1292" y="417"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="images" width="75" height="45"/>
+    </resources>
+</document>
